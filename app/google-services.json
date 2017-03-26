@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "849725878994",
+    "firebase_url": "https://fir-1-a313e.firebaseio.com",
+    "project_id": "fir-1-a313e",
+    "storage_bucket": "fir-1-a313e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849725878994:android:5b0b1e521d4cf23e",
+        "android_client_info": {
+          "package_name": "com.droid.atl.testfragment2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "849725878994-foaamp59asrakmgm997nkc3ocmk35u4i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaLjjF-HCa51LU0hEsGjFzKMwwSOyFSq0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849725878994:android:abc7d388a9a0afa4",
+        "android_client_info": {
+          "package_name": "com.droid.atl.farmyantra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "849725878994-foaamp59asrakmgm997nkc3ocmk35u4i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaLjjF-HCa51LU0hEsGjFzKMwwSOyFSq0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+<group android:checkableBehavior="single">
+
+    <group android:id="@+id/grp1" android:checkableBehavior="single" >
+        <item android:title="@string/app_name">
+
+            <item
+                android:id="@+id/login"
+                android:icon="@drawable/login"
+                android:title="Login or Signup" />
+            <item
+                android:id="@+id/MyAccount"
+                android:icon="@drawable/company_account"
+                android:title="Company Account" />
+
+        </item>
+    </group>
+
+</group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/Tractors"
+            android:icon="@drawable/ic_res_tractor"
+            android:title="Tractors" />
+        <item
+            android:id="@+id/PowerTillers"
+            android:icon="@drawable/ic_res_powertiller"
+            android:title="Power Tillers" />
+        <item
+            android:id="@+id/FieldPrep"
+            android:icon="@drawable/ic_res_farmprep"
+            android:title="Field Prepration" />
+        <item
+            android:id="@+id/SowPlntr"
+            android:icon="@drawable/ic_res_sowing"
+            android:title="Sowing and Planter" />
+        <item
+            android:id="@+id/ThreshingMac"
+            android:icon="@drawable/ic_res_thresher"
+            android:title="Threshing Machine" />
+        <item
+            android:id="@+id/Harvester"
+            android:icon="@drawable/ic_res_harvestor"
+            android:title="Harvester" />
+        <item
+            android:id="@+id/Others"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Others" />
+    </group>
+
+<group android:checkableBehavior="single">
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+            <item
+                android:id="@+id/cx_support"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Customer Care" />
+        </menu>
+    </item>
+</group>
+
+</menu>
