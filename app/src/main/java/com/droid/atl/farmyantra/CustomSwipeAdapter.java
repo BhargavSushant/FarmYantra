@@ -8,6 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import java.util.Objects;
+
+import static java.lang.System.arraycopy;
+
 /**
  * Created by dev on 27-Mar-17.
  */
@@ -16,9 +20,7 @@ public class CustomSwipeAdapter extends PagerAdapter {
 
     private int[] img_res;// = {R.drawable.slider1, R.drawable.slider2, R.drawable.slider3, R.drawable.slider4};
     private int[] img_res_slider = {R.drawable.slider1, R.drawable.slider2, R.drawable.slider3, R.drawable.slider4};
-    private int[] img_res_tractor = {R.drawable.testimg1,R.drawable.testimg2,R.drawable.testimg3,
-            R.drawable.testimg4,R.drawable.testimg5,R.drawable.testimg7,R.drawable.testimg1,R.drawable.testimg2,R.drawable.testimg3,
-            R.drawable.testimg4,R.drawable.testimg5,R.drawable.testimg7};
+    private int[] img_res_tractor = {R.drawable.testimg1, R.drawable.testimg2, R.drawable.testimg3, R.drawable.testimg4, R.drawable.testimg5};
 
     private Context ctx;
     private LayoutInflater layoutInflater;
@@ -26,10 +28,22 @@ public class CustomSwipeAdapter extends PagerAdapter {
 
     CustomSwipeAdapter(Context ctx,String caller) {
         this.ctx = ctx; this.caller = caller;
-        if (caller == "slider") img_res = img_res_slider;
-        else if(caller == "tractor") img_res = img_res_tractor;
+        if (Objects.equals(caller, "slider")) {
+            img_res = new int[img_res_slider.length];
+            arraycopy(img_res_slider, 0, img_res, 0, img_res_slider.length);// img_res = img_res_slider;
+        } else if (Objects.equals(caller, "tractor")) {
+            img_res = new int[img_res_tractor.length];
+            arraycopy(img_res_tractor, 0, img_res, 0, img_res_tractor.length); //img_res = img_res_tractor;
+        }
         //else if (caller == "sow")
-        else img_res=img_res_tractor;
+        else if (Objects.equals(caller, "sow")) {
+            img_res = new int[img_res_tractor.length];
+            arraycopy(img_res_tractor, 0, img_res, 0, img_res_tractor.length);//img_res=img_res_tractor;
+        } else if (Objects.equals(caller, "tiller")) {
+            img_res = new int[img_res_tractor.length];
+            arraycopy(img_res_tractor, 0, img_res, 0, img_res_tractor.length);//img_res=img_res_tractor;
+        }
+        //public static void arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
     }
 
     @Override
@@ -39,7 +53,7 @@ public class CustomSwipeAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
-        return (view==((LinearLayout)object));
+        return (view == object);
     }
 
     @Override
