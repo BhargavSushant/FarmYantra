@@ -3,9 +3,17 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">Language</string>
-
     <string name="hello_blank_fragment">Welcome to Farmyantra</string>
     <string name="farmyantrawebsite">www.FarmYantra.com</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">LOGIN</string>
+
+    <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
+    <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
+    <string name="welcome_text">You are logged in...</string>
+    <string name="btn_link_to_products">Click here to go to Products</string>
+
+
 </resources>

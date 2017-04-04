@@ -43,7 +43,6 @@ public class CustomSwipeAdapter extends PagerAdapter {
             img_res = new int[img_res_tractor.length];
             arraycopy(img_res_tractor, 0, img_res, 0, img_res_tractor.length);//img_res=img_res_tractor;
         }
-        //public static void arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
     }
 
     @Override

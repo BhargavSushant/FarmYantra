@@ -9,13 +9,11 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -32,11 +30,9 @@ import com.google.firebase.database.FirebaseDatabase;
 public class signup extends android.app.Fragment {
 
     View myView;
-
+    DatabaseReference dbref;
     // firebase
     private FirebaseAuth firebaseAuth;
-    DatabaseReference dbref;
-
     //defining view objects
     private EditText editTextEmail;
     private EditText editTextPassword;
@@ -44,6 +40,17 @@ public class signup extends android.app.Fragment {
     private EditText etCompany, etContactPerson, etContactNo;
     private ProgressDialog progressDialog;
 
+    public signup() {
+    }
+
+    public static void hideKeyboard(boolean val, Activity activity) {
+        View view;
+        view = activity.getWindow().getCurrentFocus();
+        if (val == true) {
+            InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
 
     @Nullable
     @Override
@@ -126,7 +133,6 @@ public class signup extends android.app.Fragment {
 
     }
 
-
     private void updateUserDetails(String email, String company, String contact_person, String contact) {
 
         FirebaseDatabase databaseRef = FirebaseDatabase.getInstance();
@@ -139,18 +145,6 @@ public class signup extends android.app.Fragment {
         String company1 = company.replaceAll(" ", "");
         String emailUID = company1.replaceAll("[^[a-z]|^[0-9]]", "") + "BY" + email.replaceAll("[^[a-z]|^[0-9]]", "");
         dbref.child("UserProfile").child(emailUID).setValue(userdetails);
-    }
-
-    public signup() {
-    }
-
-    public static void hideKeyboard(boolean val, Activity activity) {
-        View view;
-        view = activity.getWindow().getCurrentFocus();
-        if (val == true) {
-            InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
     }
 
     private void alertUser() {
@@ -167,6 +161,5 @@ public class signup extends android.app.Fragment {
         //ad is the object reference
         ad.show();
     }
-
 
 }

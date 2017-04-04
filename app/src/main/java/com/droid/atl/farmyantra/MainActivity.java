@@ -1,12 +1,7 @@
 package com.droid.atl.farmyantra;
 
 import android.app.FragmentManager;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,8 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import static android.app.PendingIntent.getActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -95,17 +88,21 @@ public class MainActivity extends AppCompatActivity
         switch (id) {
             case R.id.login:
                 fragmentTransaction.beginTransaction()
-                        .replace(R.id.content_frame, new signup())
+                        .replace(R.id.content_frame, new login())
                         .addToBackStack("LoginFragment")
                         .commit();
-                getSupportActionBar().setTitle("Company Signup");
                 item.setChecked(true);
                 drawer.closeDrawers();
 
                 break;
 
             case R.id.MyAccount:
-
+                fragmentTransaction.beginTransaction()
+                        .replace(R.id.content_frame, new CompanyDashboard())
+                        .addToBackStack("CompanyDashboard")
+                        .commit();
+                item.setChecked(true);
+                drawer.closeDrawers();
                 break;
 
             case R.id.Tractors:

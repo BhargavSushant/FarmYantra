@@ -1,12 +1,14 @@
 package com.droid.atl.farmyantra;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Interpolator;
+import android.widget.Scroller;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -20,7 +22,6 @@ public class ProductsFragment extends android.app.Fragment {
     CustomSwipeAdapter sowPagerAdapter;
     Timer timerSlider, timerTractor, timerSow, timerTiller;
     int page = 1, sliderPage = 0, tractorCurrentPage = 0, sowCurrentPage = 0, tillerCurrentPage = 0;
-
     View myView;
 
     public ProductsFragment() {
@@ -83,10 +84,8 @@ public class ProductsFragment extends android.app.Fragment {
             default:
                 break;
         }
-
         return 1;
     }
-
 
     //  inner class
     private class RemindTaskSlider extends TimerTask {
@@ -108,14 +107,15 @@ public class ProductsFragment extends android.app.Fragment {
                     if (sliderPage > 3)
                         sliderPage = 0;
                     else {
-                        vPager.setCurrentItem(sliderPage++);
-                        Log.d("SliderPager ======= ", Integer.toString(sliderPage));
+                        vPager.setCurrentItem(sliderPage++, true);
+
                     }
 
                 }
             });
 
         } // end run()
+
 
     }// end RemindTask class
 
@@ -203,8 +203,38 @@ public class ProductsFragment extends android.app.Fragment {
                 }
             });
 
+
         } // end run()
 
     }// end RemindTask class
 
+    public class FixedSpeedScroller extends Scroller {
+
+        private int mDuration = 5000;
+
+        public FixedSpeedScroller(Context context) {
+            super(context);
+        }
+
+        public FixedSpeedScroller(Context context, Interpolator interpolator) {
+            super(context, interpolator);
+        }
+
+        public FixedSpeedScroller(Context context, Interpolator interpolator, boolean flywheel) {
+            super(context, interpolator, flywheel);
+        }
+
+
+        @Override
+        public void startScroll(int startX, int startY, int dx, int dy, int duration) {
+            // Ignore received duration, use fixed one instead
+            super.startScroll(startX, startY, dx, dy, mDuration);
+        }
+
+        @Override
+        public void startScroll(int startX, int startY, int dx, int dy) {
+            // Ignore received duration, use fixed one instead
+            super.startScroll(startX, startY, dx, dy, mDuration);
+        }
+    }
 }
